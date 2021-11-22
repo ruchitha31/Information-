@@ -1,0 +1,66 @@
+<html>
+<head>
+  <title> Information </title>
+  <style>
+    html body {
+    width: 100%;
+    height: 100%;
+    }
+    .loginform{
+    text-align: center;
+    height: 35%;
+    width: 35%;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1400px;
+    }
+  </style>
+</head>
+<script>
+  function verifyUserPass() {
+    var pw = document.getElementById("pswd").value;
+    var us = document.getElementById("user").value;
+    if (us == "") {
+      document.getElementById("message").innerHTML = "**Fill the username please!";
+      return false;
+    }
+    if (pw == "") {
+document.getElementById("message").innerHTML = "**Fill the password please!";
+      return false;
+    }
+    if (pw.length < 8) {
+      document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";
+      return false;
+    }
+    if (pw.length > 15) {
+      document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+    else {
+      alert("Password is correct");
+    }
+  }
+</script>
+<body bgcolor="lavender">
+  <div class="loginform">
+    <h1 style="color:red">Information</h1>
+    <form onsubmit="return verifyUserPass()" style="padding: 5;">
+      Username : <input type="text" id="user"><br><br>
+      Password : <input type="password" id="pswd">
+      <br><br>
+      <span id="message" style="color:red">
+      </span>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+    
+</body>
+
+</html>
